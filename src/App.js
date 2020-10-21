@@ -3,6 +3,7 @@ import './App.css';
 import Movies from './Components/Movies';
 import SearchBar from './Components/SearchBar'
 import gif from '../src/eternity.gif'
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -13,11 +14,14 @@ class App extends React.Component {
   }
 
   searchMovie = async (text)=>{
-    const res = await (await fetch(`http://omdbapi.com/?apikey=bd992033&s=${text}`)).json()
+    const apiKey = process.env.REACT_APP_OMDB   
+    
+    const res = await (await fetch(`http://omdbapi.com/?apikey=${apiKey}&s=${text}`)).json()
     this.setState({
       data: res.Search,
       loading: false
     })
+    
     
 
   }
