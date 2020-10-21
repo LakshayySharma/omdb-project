@@ -18,6 +18,8 @@ export class SearchBar extends Component {
         this.props.loading()
         
         
+        
+        
     }
     onChange = (e) =>{
         this.setState({
@@ -28,7 +30,7 @@ export class SearchBar extends Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
-                <input type="text" onChange={this.onChange} name="text" value={this.state.text} placeholder="search a movie"/>
+                <input type="text" onChange={this.onChange} name="text" value={this.state.text} placeholder="search a movie" required/>
                 <input type="submit" value="search" className="btn-primary" style={{width: "100px", marginLeft: "10px"}} />
                 </form>
             </div>
